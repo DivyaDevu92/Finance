@@ -1,0 +1,185 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Finance</title>
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" media="screen" href="{% static 'css/reset.css'%}">
+<link rel="stylesheet" type="text/css" media="screen" href="{% static 'css/style.css' %}">
+<link rel="stylesheet" type="text/css" media="screen" href="{% static 'css/slider.css' %}">
+<link href='http://fonts.googleapis.com/css?family=Muli:400,300,300italic,400italic' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Passion+One:400,700' rel='stylesheet' type='text/css'>
+<script src="{% static 'js/jquery-1.7.min.js' %}"></script>
+<script src="{% static 'js/jquery.easing.1.3.js' %}"></script>
+<script src="{% static 'js/tms-0.4.1.js' %}"></script>
+<script>
+$(document)
+    .ready(function () {
+    $('.slider')
+        ._TMS({
+        show: 0,
+        pauseOnHover: true,
+        prevBu: '.prev',
+        nextBu: '.next',
+        playBu: false,
+        duration: 800,
+        preset: 'fade',
+        pagination: '.pags',
+        pagNums: false,
+        slideshow: 7000,
+        numStatus: false,
+        banners: 'fade',
+        waitBannerAnimation: false,
+        progressBar: false
+    })
+});
+</script>
+<!--[if lt IE 9]>
+<script src="js/html5.js"></script>
+<link rel="stylesheet" type="text/css" media="screen" href="css/ie.css">
+<![endif]-->
+</head>
+<body>
+<div class="bg">
+  <div class="bg-2">
+    <!--==============================header=================================-->
+    <header>
+      <h1 style="color: red; font-size: 50px; font-family: 'Trebuchet MS';font-stretch: ultra-expanded;">FlOwInG FiNaNcE </h1>
+      <div class="user-auth">
+        {% if user.is_authenticated %}
+          <p>Welcome, {{ user.username }}!</p>
+          <a href="{% url 'logout' %}">Logout</a>
+        {% else %}
+          <a href="{% url 'login' %}"></a>
+        {% endif %}
+      <!-- In base.html or the top of index.html -->
+    </div>
+
+      <nav>
+        <ul class="menu">
+          <li class="current"><a href="{% url 'index' %}">Home</a></li>
+          <li><a href="{% url 'Visualization'%}">Visualization</a></li>
+          <li><a href="{% url 'banking' %}">Banking</a></li>
+          <li><a href="{% url 'Budget' %}">Budget</a></li>
+          <li><a href="{% url 'login' %}">Login</a></li>
+        </ul>
+      </nav>
+      
+      <div id="slide">
+        <div class="slider">
+          <ul class="items">
+            <li><img src="{% static 'images/slid2.jpg' %}" alt="">
+              <div class="banner">
+                <div class="slogan"><p>Turn <span class="clr-1">small savings</span> into <span class="clr-1">big dreams</span></p></div>
+                <a href="#" class="button-1">Read more</a></div>
+            </li>
+            <li><img src="{% static 'images/33.jpg' %}" alt="">
+              <div class="banner">
+                <div class="slogan"><p>Save <span class="clr-1">smarter</span>, live <span class="clr-1">better</span></p></div>
+                <a href="#" class="button-1">Read more</a></div>
+            </li>
+            <li><img src="{% static 'images/slider-22.jpg' %}" alt="">
+              <div class="banner">
+                <div class="slogan"><p>Your <span class="clr-1">future</span>, Your <span class="clr-1">savings</span></p></div>
+                <a href="#" class="button-1">Read more</a></div>
+            </li>
+          </ul>
+        </div>
+        <a href="#" class="prev"></a><a href="#" class="next"></a>
+        <div class="line-left"></div>
+        <div class="line-right"></div>
+        <ul class="pags">
+        </ul>
+      </div>
+    </header>
+    <!--==============================content================================-->
+    <section id="content">
+      <div class="slogan">
+        <p>Your savings <span class="clr-1">journey starts</span> now, and with <span class="clr-1">our support</span>, your <span class="clr-1">goals are closer </span>than ever!</p>
+        <p></p>
+        <a href="#" class="button-2">click here</a> </div>
+      <div class="wrap page1-row1">
+        <div class="box-1 border-right"> <strong class="number number-1">01.</strong> <span class="text-1">Expense Tracking</span>
+          <p class="text-2">Track and categorize your expenses effortlessly.</p>
+          <p class="text-3">Keep track of every expense effortlessly with automated categorization.</p>
+          <a href="{% url 'expense_tracking' %}" class="link-1">Read more</a> </div>
+        <div class="box-1 border-right"> <strong class="number number-2">02.</strong> <span class="text-1">Budget Planning</span>
+          <p class="text-2">Set and manage your monthly or yearly budget.</p>
+          <p class="text-3">Create personalized budgets based on your financial goals. Whether it's for monthly </p>
+          <a href="{% url 'budget_planning' %}" class="link-1">Read more</a> </div>
+        <div class="box-1 border-right"> <strong class="number number-3">03.</strong> <span class="text-1">Savings Goals</span>
+          <p class="text-2">Plan and achieve your savings goals efficiently.</p>
+          <p class="text-3">Set up savings goals for big purchases, vacations, or emergencies. With progress</p>
+          <a href="#" class="link-1">Read more</a> </div>
+        <div class="box-1 last"> <strong class="number number-4">04.</strong> <span class="text-1">Financial Reports</span>
+          <p class="text-2">Generate reports to track your financial progress.</p>
+          <p class="text-3">Generate detailed financial reports that offer a comprehensive view of your</p>
+          <a href="#" class="link-1">Read more</a> </div>
+      </div>
+      <div class="wrap page1-row2">
+        <div class="page1-col-1 border-right">
+          <h2>We know how to boost<strong class="clr-1"> your savings and secure your future</strong></h2>
+          <div class="wrap"> <img src="{% static 'images/page1-img1.jpg' %}" alt="" class="img-indent img-border">
+            <p class=" extra-wrap clr-1">We understand that achieving financial security is a journey, not just a destination. With the right strategies, you can unlock your financial potential and pave the way for a brighter future. Your financial success is our mission. </p>
+          </div>
+          <p>We believe that with discipline and the right mindset, anyone can improve their savings. Together, we can create a sustainable plan that not only improves your savings today but also secures your financial well-being for years to come.</p>
+          <a href="#" class="link-2">Read more</a> </div>
+        <div class="page1-col-2 border-right">
+          <h2><span class="clr-1">R</span>ecent Transactions</h2>
+          <div class="box-2"> <a href="#" class="link-3">09.29</a>
+            <p><a href="#" class="link"><strong>Grocery Purchase </strong></a> Paid via debit card at Supermarket.</p>
+          </div>
+          <div class="box-2"> <a href="#" class="link-3">09.27</a>
+            <p><a href="#" class="link"><strong>Salary Credited </strong></a> Monthly salary credited to savings account.</p>
+          </div>
+          <a href="#" class="link-2">View all transactions</a> </div>
+        <div class="page1-col-3">
+          <h2><span class="clr-1">F</span>inancial Goals</h2>
+          <ul class="list-1">
+            <li><a href="#">Vacation Fund - 65% Complete</a></li>
+            <li><a href="#">Emergency Savings - 45% Complete</a></li>
+            <li><a href="#">Debt Repayment - 30% Complete</a></li>
+            <li><a href="#">Home Down Payment - 20% Complete</a></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </div>
+</div>
+<!--==============================aside=================================-->
+<aside>
+  <div class="wrap">
+    <div class="aside-col-1 border-right-2">
+      <h3><span class="clr-1">N</span>otifications</h3>
+      <form id="form-search" method="post" action="#">
+        <span>Enter you email here:</span>
+        <input type="text" value="" onBlur="if(this.value=='') this.value=''" onFocus="if(this.value =='' ) this.value=''">
+        <a href="#" class="link-2">subscribe</a>
+      </form>
+    </div>
+    <div class="aside-col-2 border-right-2">
+      <h3><span class="clr-1">P</span>lanning info:</h3>
+      <p>Goal-Based Planning, Tax Planning, Budget Planning, Investment Insights, Debt Management, Investment Portfolio, Net Worth Overview</p>
+    </div>
+    <div class="aside-col-3 border-right-2">
+      <dl class="adrss">
+        <dd><span>Freephone:</span><strong>+91 999 57 900 14</strong></dd>
+        <dd><span>Telephone:</span><strong>+91 999 57 900 14</strong></dd>
+        <dd><span>Fax:</span><strong>+91 999 57 900 14</strong></dd>
+        <dd><span>E-mail:</span><a href="#" class="link"><strong>divyaph@gmail.com</strong></a></dd>
+      </dl>
+      <p><strong>9870St Vincent Place,<br>
+        Glasgow, DC 45 Fr 45.</strong></p>
+    </div>
+    <div class="aside-col-4">
+      <div class="soc-icons"> <a href="#"><img src="{% static 'images/icon-1.png' %}" alt=""></a><a href="#"><img src="{% static 'images/icon-2.png' %}" alt=""></a><a href="#"><img src="{% static 'images/icon-3.png' %}" alt=""></a> </div>
+    </div>
+  </div>
+</aside>
+<!--==============================footer=================================-->
+<footer>
+  <p><strong>© 2012 Vertex</strong><br>
+    Website Template by <a target="_blank" href="http://www.templatemonster.com/" class="link-4">TemplateMonster.com</a></p>
+</footer>
+</body>
+</html>
